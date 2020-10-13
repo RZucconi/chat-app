@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Contact from './Contact';
 import './contact.css';
 
 const users = [
@@ -32,19 +32,7 @@ const users = [
 
 const ContactList = () => (
     <div>
-        { users.map(user => (
-            <div className="Contact">
-            <img className="avatar" key={user.name} src={user.avatar} alt={user.name}
-            />
-            <div>
-                <h2 key={user.name} className="name">{user.name}</h2>
-                <div className="status">
-                    <span key={user.name} className={user.online ? 'status-online' : 'status-offline'}></span>
-                    <div key={user.name} className="status-text">{user.online ? "Online" : "Offline"}</div>    
-                </div>
-            </div>
-        </div>
-        ))}
+        { users.map(user => ( <Contact {...user} key={user.name}/> ))}
     </div>
 )
 
